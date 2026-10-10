@@ -3,3 +3,23 @@ main = "danmu_api/worker.js"
 compatibility_date = "2025-09-13"
 keep_vars = true
 compatibility_flags = ["nodejs_compat"]
+
+[vars]
+BLOCKED_WORDS = "签,/[一二三四五六七八九十]{1,}分钟[\\s\\S]{0,}|[一二三四五六七八九十]{1,}小时[\\s\\S]{0,}|刚刚[\\s\\S]{0,}|[0-9]分[\\s\\S]{0,}|[0-9]小?时[\\s\\S]{0,}/,/(?<!\\d)\\d{4}([/.\\-])(?:0?[1-9]|1[0-2])\\1(?:0?[1-9]|[12]\\d|3[01])(?!\\d)/"
+DANMU_SIMPLIFIED_TRADITIONAL = "simplified"
+MERGE_SOURCE_PAIRS = "dandan&animeko&bahamut"
+SOURCE_ORDER = "360,douban,bilibili,dandan,animeko,bahamut"
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = true
+persist = true
+
+[observability.traces]
+enabled = true
+head_sampling_rate = 1
+persist = true
+
+[observability.issue_detection]
+enabled = true
